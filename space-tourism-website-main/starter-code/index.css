@@ -574,6 +574,23 @@ body {
   }
 }
 
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .technology {
+    background-position: center center;
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .technology {
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+  }
+}
+
 /* *************************** */
 /*          LAYOUT             */
 /* *************************** */
@@ -658,6 +675,45 @@ body {
   color: hsl(var(--clr-white) / 0.5);
 }
 
+/* technology layout */
+
+.grid-container--technology {
+  --flow-space: 2rem;
+  grid-template-areas:
+        'title'
+        'image'
+        'tabs'
+        'content';
+}
+
+.grid-container--technology > picture {
+  grid-area: image;
+  max-width: 100%;
+  overflow:auto;
+}
+
+.grid-container--technology > .number-indicators {
+  grid-area: tabs;
+  display: flex;
+  flex-direction: row;
+}
+
+.number-indicators > [aria-selected="false"] {
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-white) / 0);
+}
+
+.grid-container--technology > .technology-details {
+  grid-area: content;
+}
+
+.technology-details h2 {
+  color: hsl(var(--clr-white) / 0.5);
+}
+
+
+/* media queries */
+
 @media (min-width: 35em) {
     .numbered-title {
     justify-self: start;
@@ -676,6 +732,25 @@ body {
         'content'
         'tabs'
         'image';
+  }
+
+  .grid-container--technology {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-template-areas: 
+            ' title title . .'
+            '. image image .'
+            '. tabs tabs .'
+            '. content content .';
+  }
+
+  .grid-container--technology > picture {
+    max-width: 100%;
+    grid-column: span 4;
+  }
+
+  .grid-container--technology > .technology-details {
+    text-align: center;
   }
 }
 
@@ -728,7 +803,32 @@ body {
 
   .grid-container--crew > picture {
     align-self: end;
-    max-width: 900%;
+    max-width: 90%;
     grid-column: span 2;
   }
+
+  .grid-container--technology {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+    justify-items: start;
+    grid-template-areas: 
+            '. title . . .'
+            '. tabs content content image';
+  }
+
+  .grid-container--technology > picture {
+    content: url(./assets/technology/image-launch-vehicle-portrait.jpg);
+    grid-column: 4 / 6;
+  }
+
+  .grid-container--technology > .number-indicators {
+    flex-direction: column;
+  }
+
+  .grid-container--technology > .technology-details {
+    grid-column: 2 / 4;
+    margin-left: 8rem;
+    text-align: left;
+  }
+
+
 }
