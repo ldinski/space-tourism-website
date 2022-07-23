@@ -15,7 +15,7 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-// tabs content change on destination page
+// tabs content change
 
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');

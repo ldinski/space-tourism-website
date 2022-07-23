@@ -803,21 +803,36 @@ body {
 
   .grid-container--crew > picture {
     align-self: end;
-    max-width: 90%;
-    grid-column: span 2;
+    max-width: 100%;
   }
 
   .grid-container--technology {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+    grid-template-columns: minmax(1rem, 7vw) 5rem minmax(5vw, 35vw) minmax(1rem, 7rem) minmax(1rem, 1fr);
+    grid-template-rows: 3rem 1fr;
     justify-items: start;
     grid-template-areas: 
-            '. title . . .'
-            '. tabs content content image';
+            '. title title image image image'
+            '. tabs content image image image';
   }
 
   .grid-container--technology > picture {
+    justify-self: end;
+    max-width: 100%;
+  }
+
+  .grid-container--technology > #launch-image {
     content: url(./assets/technology/image-launch-vehicle-portrait.jpg);
-    grid-column: 4 / 6;
+    max-width: 100%;
+  }
+
+  .grid-container--technology > #spaceport-image {
+    content: url(./assets/technology/image-spaceport-portrait.jpg);
+    max-width: 100%;
+  }
+
+  .grid-container--technology > #space-capsule-image {
+    content: url(./assets/technology/image-space-capsule-portrait.jpg);
+    max-width: 100%;
   }
 
   .grid-container--technology > .number-indicators {
@@ -825,8 +840,6 @@ body {
   }
 
   .grid-container--technology > .technology-details {
-    grid-column: 2 / 4;
-    margin-left: 8rem;
     text-align: left;
   }
 
